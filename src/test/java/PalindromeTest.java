@@ -6,17 +6,26 @@ import static org.junit.Assert.assertFalse;
 public class PalindromeTest {
 
     @Test
-    public void testIsPalindrome() {
-        // Позитивный тест - слово "radar" является палиндромом
+    public void testIsPalindromeSingleWord() {
         assertTrue(Palindrome.isPalindrome("radar"));
-
-        // Позитивный тест - фраза "A man a plan a canal Panama" является палиндромом
-        assertTrue(Palindrome.isPalindrome("A man a plan a canal Panama"));
-
-        // Негативный тест - слово "hello" не является палиндромом
         assertFalse(Palindrome.isPalindrome("hello"));
+    }
 
-        // Негативный тест - фраза "This is not a palindrome" не является палиндромом
+    @Test
+    public void testIsPalindromePhrase() {
+        assertTrue(Palindrome.isPalindrome("A man a plan a canal Panama"));
         assertFalse(Palindrome.isPalindrome("This is not a palindrome"));
+    }
+
+    @Test
+    public void testIsPalindromeCaseInsensitive() {
+        assertTrue(Palindrome.isPalindrome("Racecar"));
+        assertFalse(Palindrome.isPalindrome("Java"));
+    }
+
+    @Test
+    public void testIsPalindromeWithSpaces() {
+        assertTrue(Palindrome.isPalindrome("Was it a car or a cat I saw"));
+        assertFalse(Palindrome.isPalindrome("Not a palindrome"));
     }
 }
